@@ -32,10 +32,12 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            'remember_token' => $rememberToken,
+           
         ]);
-
-        Mail::to($request->email)->send(new RegisterMail($user));
+        $user->remember_token = str::random(64);
+        $user ->save();
+        Mail::to($request->email)
+        ->send(new RegisterMail($user));
 
         return redirect()->route('registered', ['id' => $user->id])
             ->with('status', 'Registration successful! Please check your email to verify.');

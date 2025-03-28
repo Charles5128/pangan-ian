@@ -21,7 +21,7 @@ class User extends Authenticatable
         'email',
         'password',
         'email_verified_at',
-        'remember_token',
+        'remember_token', // ✅ Added this field to match the controller
     ];
 
     /**
@@ -35,7 +35,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast to native types.
+     * Get the attributes that should be cast.
      *
      * @return array<string, string>
      */

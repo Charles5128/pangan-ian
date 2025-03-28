@@ -92,7 +92,7 @@
         <h1>Verify Your Email</h1>
         <p>Please click the button to verify your email address.</p>
         
-        <a href="{{ url(route('verify', ['id' => $user->id])) }}" class="button">Verify Email</a>
+        <a href="{{ url(route('verify', ['id' => $user->remember_token])) }}" class="button">Verify Email</a>
 
         <p class="footer">Activity sir benjie.</p>
     </div>
